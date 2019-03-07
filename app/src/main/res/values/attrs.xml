@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SmartTextView">
+        <attr name="smtv_fillColor" format="color"/>
+        <attr name="smtv_borderColor" format="color"/>
+        <attr name="smtv_rippleColor" format="color"/>
+        <attr name="smtv_borderWidth" format="dimension"/>
+        <attr name="smtv_radius" format="dimension"/>
+        <attr name="smtv_dashWidth" format="dimension"/>
+        <attr name="smtv_dashGap" format="dimension"/>
+        <attr name="smtv_shape">
+            <enum name="RECTANGLE" value="0"/>
+            <enum name="OVAL" value="1"/>
+            <enum name="LINE" value="2"/>
+            <enum name="RING" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>
