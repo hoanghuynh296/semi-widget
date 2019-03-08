@@ -1,13 +1,13 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.hoanghuynh296'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "vn.semicolon.base.semiwidget"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
