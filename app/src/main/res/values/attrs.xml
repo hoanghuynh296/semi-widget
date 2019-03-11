@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="SmartTextView">
+    <declare-styleable name="SmartEditText">
         <attr name="smtv_fillColor" format="color"/>
         <attr name="smtv_borderColor" format="color"/>
         <attr name="smtv_rippleColor" format="color"/>
