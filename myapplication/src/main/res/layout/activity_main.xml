@@ -25,4 +25,16 @@
             android:padding="10dp"
             android:inputType="text"
             android:layout_marginStart="10dp"/>
+
+    <vn.semicolon.base.widget.customview.StateTextView
+            android:id="@+id/stateTV"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Simon Le"
+            app:smtv_backgroundActiveColor="#00ff00"
+            app:smtv_backgroundInActiveColor="#ff00ff"
+            android:padding="10dp"
+            app:smtv_textActiveColor="#0000ff"
+            app:smtv_radius="10dp"
+            android:layout_marginStart="10dp"/>
 </LinearLayout>

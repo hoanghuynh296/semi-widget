@@ -5,7 +5,7 @@ import android.text.InputType
 import android.util.AttributeSet
 
 
-class SmartTextView : SmartEditText {
+open class SmartTextView : SmartEditText {
 
     constructor(context: Context) : super(context) {
         init(context, null, 0)

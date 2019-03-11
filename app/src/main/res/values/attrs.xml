@@ -15,4 +15,10 @@
             <enum name="RING" value="3"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="StateTextView">
+        <attr name="smtv_backgroundActiveColor" format="color"/>
+        <attr name="smtv_backgroundInActiveColor" format="color"/>
+        <attr name="smtv_textActiveColor" format="color"/>
+        <attr name="smtv_textInActiveColor" format="color"/>
+    </declare-styleable>
 </resources>
