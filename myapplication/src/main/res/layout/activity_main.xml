@@ -37,4 +37,15 @@
             app:smtv_textActiveColor="#0000ff"
             app:smtv_radius="10dp"
             android:layout_marginStart="10dp"/>
+
+    <vn.semicolon.base.widget.customview.SmartTextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            app:smtv_fillColor="#F2F2F2"
+            android:layout_marginTop="10dp"
+            app:smtv_radius="5dp"
+            android:textSize="15sp"
+            android:text="Simon Le"
+            android:gravity="center"/>
 </LinearLayout>

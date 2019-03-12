@@ -23,67 +23,21 @@ open class SmartEditText : AppCompatEditText {
     private var mDashGap = 0f
     private var mRippleColor: Int = Color.parseColor("#dfdfdf")
 
-    constructor(context: Context) : super(context){
-        init(context, null,0)
+    constructor(context: Context) : super(context) {
+        init(null, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs){
-        init(context, attrs,0)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init(attrs, 0)
     }
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
             super(context, attrs, defStyleAttr) {
-        init(context, attrs, defStyleAttr)
+        init(attrs, defStyleAttr)
     }
 
-    private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-
-        attrs?.let {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SmartEditText, defStyleAttr, 0)
-            mBorderColor = typedArray.getColor(
-                R.styleable.SmartEditText_smtv_borderColor,
-                Color.parseColor("#adadad")
-            )
-            mBorderWidth = typedArray.getDimensionPixelOffset(R.styleable.SmartEditText_smtv_borderWidth, 0)
-            mFillColor = typedArray.getColor(
-                R.styleable.SmartEditText_smtv_fillColor,
-                Color.parseColor("#00000000")
-            )
-            mRadius = typedArray.getDimension(R.styleable.SmartEditText_smtv_radius, 0f)
-            mDashWidth = typedArray.getDimension(R.styleable.SmartEditText_smtv_dashWidth, 0f)
-            mDashGap = typedArray.getDimension(R.styleable.SmartEditText_smtv_dashGap, 0f)
-            mShape = typedArray.getInt(R.styleable.SmartEditText_smtv_shape, GradientDrawable.RECTANGLE)
-            mRippleColor = typedArray.getColor(
-                R.styleable.SmartEditText_smtv_rippleColor,
-                Color.parseColor("#dfdfdf")
-            )
-            typedArray.recycle()
-        }
-        val shape = GradientDrawable()
-        shape.shape = mShape
-        shape.cornerRadius = mRadius
-        shape.setStroke(mBorderWidth, mBorderColor, mDashWidth, mDashGap)
-        shape.setColor(mFillColor)
-
-        val rippleBackground = RippleDrawable(
-            getPressedColorSelector(
-                mRippleColor,
-                Color.parseColor("#00000000")
-            ),
-            shape, shape
-        )
-        this.background = rippleBackground
-    }
-
-    private fun getPressedColorSelector(normalColor: Int, pressedColor: Int): ColorStateList {
-        return ColorStateList(
-            arrayOf(
-                intArrayOf(android.R.attr.state_pressed),
-                intArrayOf(android.R.attr.state_focused),
-                intArrayOf(android.R.attr.state_activated),
-                intArrayOf()
-            ),
-            intArrayOf(pressedColor, pressedColor, pressedColor, normalColor)
-        )
+    private fun init(attrs: AttributeSet?, defStyleAttr: Int) {
+        val helper = SmartTextViewHelper(this)
+        helper.loadFromAttributes(attrs, defStyleAttr)
     }
 }
