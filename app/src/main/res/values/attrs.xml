@@ -21,4 +21,7 @@
         <attr name="smtv_textActiveColor" format="color"/>
         <attr name="smtv_textInActiveColor" format="color"/>
     </declare-styleable>
+    <declare-styleable name="LockableViewPager">
+        <attr name="lvp_isLockSwipe" format="boolean"/>
+    </declare-styleable>
 </resources>

@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.widget.TextView
 import vn.semicolon.base.widget.R
 
-class SmartTextViewHelper {
+internal class SmartTextViewHelper(textView: TextView) {
 
     private var mBorderColor: Int = Color.parseColor("#adadad")
     private var mBorderWidth: Int = 0
@@ -19,11 +19,7 @@ class SmartTextViewHelper {
     private var mDashGap = 0f
     private var mRippleColor: Int = Color.parseColor("#dfdfdf")
 
-    private var mTextView: TextView
-
-    constructor(textView: TextView) {
-        mTextView = textView
-    }
+    private var mTextView: TextView = textView
 
     fun loadFromAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
         attrs?.let {
