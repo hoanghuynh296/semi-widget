@@ -31,10 +31,12 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Simon Le"
-            app:smtv_backgroundActiveColor="#00ff00"
-            app:smtv_backgroundInActiveColor="#ff00ff"
+            app:smtv_backgroundEnableColor="#00ff00"
+            app:smtv_textEnableColor="#0000ff"
+            app:smtv_backgroundDisableColor="#ff00ff"
+            app:smtv_textDisableColor="#ffffff"
             android:padding="10dp"
-            app:smtv_textActiveColor="#0000ff"
+            android:enabled="true"
             app:smtv_radius="10dp"
             android:layout_marginStart="10dp"/>
 
@@ -48,4 +50,7 @@
             android:textSize="15sp"
             android:text="Simon Le"
             android:gravity="center"/>
+
+    <View android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
 </LinearLayout>

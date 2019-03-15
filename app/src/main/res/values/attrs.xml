@@ -21,6 +21,10 @@
         <attr name="smtv_textSelectedColor" format="color"/>
         <attr name="smtv_textUnSelectedColor" format="color"/>
         <attr name="smtv_isSelected" format="boolean"/>
+        <attr name="smtv_backgroundEnableColor" format="color"/>
+        <attr name="smtv_backgroundDisableColor" format="color"/>
+        <attr name="smtv_textEnableColor" format="color"/>
+        <attr name="smtv_textDisableColor" format="color"/>
     </declare-styleable>
     <declare-styleable name="LockableViewPager">
         <attr name="lvp_isLockSwipe" format="boolean"/>
