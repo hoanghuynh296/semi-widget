@@ -16,10 +16,11 @@
         </attr>
     </declare-styleable>
     <declare-styleable name="StateTextView">
-        <attr name="smtv_backgroundActiveColor" format="color"/>
-        <attr name="smtv_backgroundInActiveColor" format="color"/>
-        <attr name="smtv_textActiveColor" format="color"/>
-        <attr name="smtv_textInActiveColor" format="color"/>
+        <attr name="smtv_backgroundSelectedColor" format="color"/>
+        <attr name="smtv_backgroundUnSelectedColor" format="color"/>
+        <attr name="smtv_textSelectedColor" format="color"/>
+        <attr name="smtv_textUnSelectedColor" format="color"/>
+        <attr name="smtv_isSelected" format="boolean"/>
     </declare-styleable>
     <declare-styleable name="LockableViewPager">
         <attr name="lvp_isLockSwipe" format="boolean"/>

@@ -11,10 +11,10 @@ import vn.semicolon.base.widget.R
 
 class StateTextView : SmartTextView {
 
-    private var mBackgroundActiveColor: Int = Color.parseColor("#0f0f0f")
-    private var mBackgroundInInActiveColor: Int = Color.parseColor("#00000000")
-    private var mTextActiveColor: Int = Color.parseColor("#0f0f0f")
-    private var mTextInActiveColor: Int = Color.parseColor("#000000")
+    private var mBackgroundSelectedColor: Int = Color.parseColor("#0f0f0f")
+    private var mBackgroundUnSelectedColor: Int = Color.parseColor("#00000000")
+    private var mTextSelectedColor: Int = Color.parseColor("#0f0f0f")
+    private var mTextUnSelectedColor: Int = Color.parseColor("#000000")
 
     constructor(context: Context) : super(context) {
         init(context, null, 0)
@@ -32,25 +32,25 @@ class StateTextView : SmartTextView {
     private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.StateTextView, defStyleAttr, 0)
-            mBackgroundActiveColor = typedArray.getColor(
-                R.styleable.StateTextView_smtv_backgroundActiveColor,
+            mBackgroundSelectedColor = typedArray.getColor(
+                R.styleable.StateTextView_smtv_backgroundSelectedColor,
                 Color.parseColor("#0f0f0f")
             )
-            mBackgroundInInActiveColor = typedArray.getColor(
-                R.styleable.StateTextView_smtv_backgroundInActiveColor,
+            mBackgroundUnSelectedColor = typedArray.getColor(
+                R.styleable.StateTextView_smtv_backgroundUnSelectedColor,
                 Color.parseColor("#00000000")
             )
-            mTextActiveColor = typedArray.getColor(
-                R.styleable.StateTextView_smtv_textActiveColor,
+            mTextSelectedColor = typedArray.getColor(
+                R.styleable.StateTextView_smtv_textSelectedColor,
                 Color.parseColor("#000000")
             )
-            mTextInActiveColor = typedArray.getColor(
-                R.styleable.StateTextView_smtv_textInActiveColor,
+            mTextUnSelectedColor = typedArray.getColor(
+                R.styleable.StateTextView_smtv_textUnSelectedColor,
                 Color.parseColor("#0f0f0f")
             )
+            isSelected = typedArray.getBoolean(R.styleable.StateTextView_smtv_isSelected, false)
             typedArray.recycle()
         }
-        isSelected = false
     }
 
     override fun setSelected(selected: Boolean) {
@@ -59,10 +59,10 @@ class StateTextView : SmartTextView {
         if (drawableBg is RippleDrawable) {
             val shape = drawableBg.getDrawable(0)
             if (shape is GradientDrawable) {
-                shape.setColor(if (selected) mBackgroundActiveColor else mBackgroundInInActiveColor)
+                shape.setColor(if (selected) mBackgroundSelectedColor else mBackgroundUnSelectedColor)
             }
         }
-        this.setTextColor(if (selected) mTextActiveColor else mTextInActiveColor)
+        this.setTextColor(if (selected) mTextSelectedColor else mTextUnSelectedColor)
         requestLayout()
         invalidate()
     }
