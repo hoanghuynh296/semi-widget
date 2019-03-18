@@ -29,4 +29,15 @@
     <declare-styleable name="LockableViewPager">
         <attr name="lvp_isLockSwipe" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="SemiSpinner">
+        <attr name="smsp_itemTextColor" format="color"/>
+        <attr name="smsp_itemTextSelectedColor" format="color"/>
+        <attr name="smsp_itemTextSize" format="dimension"/>
+        <attr name="smsp_itemBgSelectedColor" format="color"/>
+        <attr name="smsp_itemBgUnSelectedColor" format="color"/>
+        <attr name="smsp_hideArrow" format="boolean"/>
+        <attr name="smsp_arrowDrawable" format="reference"/>
+        <attr name="smsp_popupMaxHeight" format="dimension"/>
+        <attr name="smsp_popupElevation" format="dimension"/>
+    </declare-styleable>
 </resources>

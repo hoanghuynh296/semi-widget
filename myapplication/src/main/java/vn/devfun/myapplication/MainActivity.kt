@@ -3,14 +3,19 @@ package vn.devfun.myapplication
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import vn.semicolon.base.widget.spinner.PopUpModel
+import vn.semicolon.base.widget.spinner.TUModel
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        stateTV.setOnClickListener {
-            it.isSelected = !it.isSelected
+        val tmp = mutableListOf<TUModel>()
+        for (i in 0 until 30) {
+            tmp.add(TUModel("Title $i"))
         }
+        spinnerTest.setItems(tmp as MutableList<PopUpModel>)
     }
 }
+

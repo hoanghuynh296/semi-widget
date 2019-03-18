@@ -6,51 +6,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:background="@android:color/white">
 
-    <vn.semicolon.base.widget.customview.SmartEditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello work"
-            android:layout_margin="20dp"
-            app:smtv_borderWidth="1dp"
-            android:padding="10dp"
-            app:smtv_borderColor="#0f0f0f"/>
-
-    <vn.semicolon.base.widget.customview.SmartTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="200dp"
-            android:hint="Type here"
-            android:padding="10dp"
-            android:inputType="text"
-            android:layout_marginStart="10dp"/>
-
-    <vn.semicolon.base.widget.customview.StateTextView
-            android:id="@+id/stateTV"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Simon Le"
-            app:smtv_backgroundEnableColor="#00ff00"
-            app:smtv_textEnableColor="#0000ff"
-            app:smtv_backgroundDisableColor="#ff00ff"
-            app:smtv_textDisableColor="#ffffff"
-            android:padding="10dp"
-            android:enabled="true"
-            app:smtv_radius="10dp"
-            android:layout_marginStart="10dp"/>
-
-    <vn.semicolon.base.widget.customview.SmartTextView
-            android:layout_width="100dp"
+    <vn.semicolon.base.widget.spinner.SemiSpinner
+            android:id="@+id/spinnerTest"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            app:smtv_fillColor="#F2F2F2"
-            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:gravity="center_vertical"
             app:smtv_radius="5dp"
-            android:textSize="15sp"
-            android:text="Simon Le"
-            android:gravity="center"/>
-
-    <View android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
+            app:smtv_fillColor="#f2f2f2"
+            android:layout_marginBottom="300dp"
+            android:text="Simon"
+            />
 </LinearLayout>
