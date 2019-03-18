@@ -33,6 +33,10 @@ class SemiPopupWindow : PopupWindow {
         mRecyclerView?.background = drawable
     }
 
+    fun setBackgroundColor(color: Int){
+        mRecyclerView?.setBackgroundColor(color)
+    }
+
     fun measureDimension(widthSpec: Int, heightSpec: Int, maxHeight: Int): Int {
         mRecyclerView?.apply {
             mRecyclerView?.measure(widthSpec, heightSpec)

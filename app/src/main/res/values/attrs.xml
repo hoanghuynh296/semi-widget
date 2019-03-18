@@ -39,5 +39,6 @@
         <attr name="smsp_arrowDrawable" format="reference"/>
         <attr name="smsp_popupMaxHeight" format="dimension"/>
         <attr name="smsp_popupElevation" format="dimension"/>
+        <attr name="smsp_bgPopupColor" format="color"/>
     </declare-styleable>
 </resources>

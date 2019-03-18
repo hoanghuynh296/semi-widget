@@ -54,6 +54,7 @@ class SemiSpinner : SmartTextView {
     private var mAdapter: PopUpAdapter? = null
     private var mListener: OnDropDownClickListener? = null
     private var mItems: MutableList<PopUpModel>? = null
+    private var mBackgroundPopupColor: Int = Color.WHITE
 
 
     constructor(context: Context) : super(context) {
@@ -113,6 +114,10 @@ class SemiSpinner : SmartTextView {
                     R.styleable.SemiSpinner_smsp_popupElevation,
                     DEFAULT_ELEVATION
                 )
+            mBackgroundPopupColor = typedArray.getColor(
+                R.styleable.SemiSpinner_smsp_bgPopupColor,
+                Color.WHITE
+            )
             typedArray.recycle()
         }
         initPopup(context)
@@ -138,9 +143,18 @@ class SemiSpinner : SmartTextView {
     private fun initPopup(context: Context) {
         mPopupWindow = SemiPopupWindow(context)
         mPopupWindow?.elevation = mElevation
+        mPopupWindow?.setBackgroundColor(mBackgroundPopupColor)
         mPopupWindow?.setOnDismissListener {
 
         }
+    }
+
+    fun setBackgroundPopupDrawable(drawable: Drawable){
+        mPopupWindow?.setCardBackgroundDrawable(drawable)
+    }
+
+    fun setBackgroundPopupColor(color: Int){
+        mPopupWindow?.setBackgroundColor(color)
     }
 
     fun setItems(items: MutableList<PopUpModel>) {
