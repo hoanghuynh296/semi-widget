@@ -10,18 +10,16 @@ import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import android.util.AttributeSet
 import androidx.annotation.DrawableRes
-import vn.semicolon.base.widget.customview.SmartTextView
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import android.view.MotionEvent
-import androidx.core.graphics.BitmapCompat
 import androidx.recyclerview.widget.RecyclerView
 import vn.semicolon.base.widget.R
 import vn.semicolon.base.widget.adapter.OnItemClickListener
+import vn.semicolon.base.widget.customview.StateTextView
 
-class SemiSpinner : SmartTextView {
+class SemiSpinner : StateTextView {
 
     companion object {
         private const val MAX_HEIGHT = 500

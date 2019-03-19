@@ -58,8 +58,8 @@ open class StateTextView : SmartTextView {
                 DEFAULT_TEXT_INACTIVE_COLOR
             )
             if ((mBackgroundSelectedColor != DEFAULT_ACTIVE_COLOR &&
-                        mBackgroundUnSelectedColor != DEFAULT_INACTIVE_COLOR) ||
-                (mTextSelectedColor != DEFAULT_TEXT_ACTIVE_COLOR &&
+                        mTextSelectedColor != DEFAULT_TEXT_ACTIVE_COLOR) ||
+                (mBackgroundUnSelectedColor != DEFAULT_INACTIVE_COLOR &&
                         mTextUnSelectedColor != DEFAULT_TEXT_INACTIVE_COLOR)
             ) {
                 isSelected = typedArray.getBoolean(R.styleable.StateTextView_smtv_isSelected, false)
@@ -82,8 +82,8 @@ open class StateTextView : SmartTextView {
                 DEFAULT_TEXT_INACTIVE_COLOR
             )
             if ((mBackgroundEnableColor != DEFAULT_ACTIVE_COLOR &&
-                        mBackgroundDisableColor != DEFAULT_INACTIVE_COLOR) ||
-                (mTextEnableColor != DEFAULT_TEXT_ACTIVE_COLOR &&
+                        mTextEnableColor != DEFAULT_TEXT_ACTIVE_COLOR) ||
+                (mBackgroundDisableColor != DEFAULT_INACTIVE_COLOR &&
                         mTextDisableColor != DEFAULT_TEXT_INACTIVE_COLOR)
             ) {
                 updateEnableColor(isEnabled)
