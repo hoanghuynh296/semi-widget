@@ -6,7 +6,8 @@ import vn.semicolon.baseui.adapter.OnItemLongClickListener
 import java.util.*
 
 
-abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<O>>(), OnItemClickListener<O>, IAmAdapter<O> {
+abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<O>>(), OnItemClickListener<O>,
+    IAmAdapter<O> {
     override val data: MutableList<O> = ArrayList()
     private var mItemClickListener: OnItemClickListener<O>? = null
     private var mItemLongClickListener: OnItemLongClickListener<O>? = null
@@ -53,7 +54,7 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
     }
 
     override fun getItemAt(position: Int): O? {
-        return if (data.size > position) data[position] else null
+        return if (position < data.size && position >= 0) data[position] else null
     }
 
     override fun add(index: Int, item: O) {
@@ -78,7 +79,7 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
     }
 
     override fun onItemClick(item: O?, pos: Int, view: View) {
-
+        mItemClickListener?.onItemClick(getItemAt(pos), pos, view)
     }
 
     override fun clear() {
@@ -90,11 +91,14 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
         val item = getItemAt(position)
         holder.bindData(item!!)
         holder.itemView.setOnClickListener {
-            mItemClickListener?.onItemClick(getItemAt(holder.adapterPosition), holder.adapterPosition, holder.itemView)
             onItemClick(item, position, holder.itemView)
         }
         holder.itemView.setOnLongClickListener {
-            mItemLongClickListener?.onItemLongClick(getItemAt(holder.adapterPosition), holder.adapterPosition, holder.itemView)
+            mItemLongClickListener?.onItemLongClick(
+                getItemAt(holder.adapterPosition),
+                holder.adapterPosition,
+                holder.itemView
+            )
             true
         }
     }
