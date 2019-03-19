@@ -58,6 +58,7 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
     }
 
     override fun add(index: Int, item: O) {
+        if (index < 0) return
         data.add(index, item)
         notifyItemInserted(index)
     }
