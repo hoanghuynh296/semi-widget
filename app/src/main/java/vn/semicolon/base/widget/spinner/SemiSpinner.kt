@@ -122,6 +122,9 @@ class SemiSpinner : StateTextView {
     }
 
     private fun initAdapter() {
+        if(mItems.isNullOrEmpty()){
+            return
+        }
         mAdapter = PopUpAdapter()
         mItems?.let {
             mAdapter?.addAll(it)
@@ -222,7 +225,6 @@ class SemiSpinner : StateTextView {
                 } else {
                     dismissDropDown()
                 }
-                return true
             }
         }
         return super.onTouchEvent(event)
