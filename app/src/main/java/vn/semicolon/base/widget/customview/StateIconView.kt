@@ -3,7 +3,6 @@ package vn.semicolon.base.widget.customview
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import vn.semicolon.base.widget.R
 
 class StateIconView : ImageView {
