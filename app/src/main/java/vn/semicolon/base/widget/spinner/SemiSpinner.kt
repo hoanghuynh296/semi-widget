@@ -134,6 +134,7 @@ class SemiSpinner : StateTextView {
         mAdapter?.setSelectedColor(mItemBgSelectedColor)
         mAdapter?.setOnItemClickListener(object : OnItemClickListener<PopUpModel> {
             override fun onItemClick(item: PopUpModel?, pos: Int, view: View) {
+                text = item?.getDisplay()
                 mSelectedIndex = pos
                 setSelectedIndex(pos)
                 mListener?.onItemClick(pos)
