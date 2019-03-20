@@ -42,4 +42,13 @@
         <attr name="smsp_popupElevation" format="dimension"/>
         <attr name="smsp_bgPopupColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="StateIconView">
+        <attr name="smi_drawableSelected" format="reference"/>
+        <attr name="smi_drawableUnSelected" format="reference"/>
+        <attr name="smi_drawableEnable" format="reference"/>
+        <attr name="smi_drawableDisable" format="reference"/>
+        <attr name="smi_isSelected" format="boolean"/>
+        <attr name="smi_isEnable" format="boolean"/>
+    </declare-styleable>
 </resources>

@@ -7,7 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity"
         android:orientation="vertical"
-        android:gravity="bottom"
         android:background="@android:color/white">
 
     <vn.semicolon.base.widget.spinner.SemiSpinner
@@ -32,7 +31,12 @@
             app:smtv_textEnableColor="#000000"
             android:enabled="false"
             app:smtv_fillColor="#f2f2f2"
-            android:layout_marginBottom="300dp"
             android:text="Simon"
     />
+    <vn.semicolon.base.widget.customview.StateIconView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:smi_isSelected="true"
+            app:smi_drawableSelected="@drawable/ic_arrow_down_black"
+            app:smi_drawableUnSelected="@drawable/ic_arrow_down_grey"/>
 </LinearLayout>
