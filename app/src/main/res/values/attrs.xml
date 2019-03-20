@@ -36,7 +36,8 @@
         <attr name="smsp_itemBgSelectedColor" format="color"/>
         <attr name="smsp_itemBgUnSelectedColor" format="color"/>
         <attr name="smsp_hideArrow" format="boolean"/>
-        <attr name="smsp_arrowDrawable" format="reference"/>
+        <attr name="smsp_arrowEnableDrawable" format="reference"/>
+        <attr name="smsp_arrowDisableDrawable" format="reference"/>
         <attr name="smsp_popupMaxHeight" format="dimension"/>
         <attr name="smsp_popupElevation" format="dimension"/>
         <attr name="smsp_bgPopupColor" format="color"/>

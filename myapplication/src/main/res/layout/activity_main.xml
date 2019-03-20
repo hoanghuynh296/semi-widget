@@ -17,6 +17,7 @@
             android:padding="10dp"
             android:gravity="center_vertical"
             app:smtv_radius="5dp"
+            android:enabled="true"
             app:smtv_fillColor="#f2f2f2"
             android:layout_marginBottom="300dp"
             android:text="Simon"

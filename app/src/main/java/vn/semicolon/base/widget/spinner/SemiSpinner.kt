@@ -30,6 +30,7 @@ class SemiSpinner : StateTextView {
         private const val IS_POPUP_SHOWING = "is_popup_showing"
         private const val IS_ARROW_HIDDEN = "is_arrow_hidden"
         private const val ARROW_DRAWABLE_RES_ID = "arrow_drawable_res_id"
+        private const val ARROW_DISABLE_DRAWABLE_RES_ID = "arrow_disable_drawable_res_id"
         const val VERTICAL_OFFSET = 1
     }
 
@@ -46,6 +47,8 @@ class SemiSpinner : StateTextView {
     private var mElevation = DEFAULT_ELEVATION
     @DrawableRes
     private var mArrowDrawableResId: Int = 0
+    @DrawableRes
+    private var mArrowDisableDrawableResId: Int = 0
     private var parentVerticalOffset: Int = 0
     //
     private var mPopupWindow: SemiPopupWindow? = null
@@ -100,8 +103,12 @@ class SemiSpinner : StateTextView {
                 )
             isArrowHidden = typedArray.getBoolean(R.styleable.SemiSpinner_smsp_hideArrow, false)
             mArrowDrawableResId = typedArray.getResourceId(
-                R.styleable.SemiSpinner_smsp_arrowDrawable,
+                R.styleable.SemiSpinner_smsp_arrowEnableDrawable,
                 R.drawable.ic_arrow_down_black
+            )
+            mArrowDisableDrawableResId = typedArray.getResourceId(
+                R.styleable.SemiSpinner_smsp_arrowDisableDrawable,
+                R.drawable.ic_arrow_down_grey
             )
             mPopupMaxHeight = typedArray.getDimensionPixelSize(
                 R.styleable.SemiSpinner_smsp_popupMaxHeight,
@@ -170,6 +177,7 @@ class SemiSpinner : StateTextView {
         bundle.putInt(SELECTED_INDEX, mSelectedIndex)
         bundle.putBoolean(IS_ARROW_HIDDEN, isArrowHidden)
         bundle.putInt(ARROW_DRAWABLE_RES_ID, mArrowDrawableResId)
+        bundle.putInt(ARROW_DISABLE_DRAWABLE_RES_ID, mArrowDisableDrawableResId)
         mPopupWindow?.run {
             bundle.putBoolean(IS_POPUP_SHOWING, isShowing)
         }
@@ -187,6 +195,7 @@ class SemiSpinner : StateTextView {
             }
             isArrowHidden = savedState.getBoolean(IS_ARROW_HIDDEN, false)
             mArrowDrawableResId = savedState.getInt(ARROW_DRAWABLE_RES_ID)
+            mArrowDisableDrawableResId = savedState.getInt(ARROW_DISABLE_DRAWABLE_RES_ID)
             instanceSave = savedState.getParcelable(INSTANCE_STATE)
         }
         super.onRestoreInstanceState(instanceSave)
@@ -199,7 +208,11 @@ class SemiSpinner : StateTextView {
     }
 
     private fun getDrawableFromDrawable(): Drawable? {
-        return ContextCompat.getDrawable(context, mArrowDrawableResId)
+        return ContextCompat.getDrawable(
+            context, if (isEnabled)
+                mArrowDrawableResId else
+                mArrowDisableDrawableResId
+        )
     }
 
     private fun setArrowDrawableOrHide(drawable: Drawable?) {
