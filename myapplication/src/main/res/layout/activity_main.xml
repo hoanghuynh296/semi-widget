@@ -19,7 +19,20 @@
             app:smtv_radius="5dp"
             android:enabled="true"
             app:smtv_fillColor="#f2f2f2"
+            android:text="Simon"
+    />
+    <vn.semicolon.base.widget.spinner.SemiSpinner
+            android:id="@+id/spinnerTest1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            app:smtv_radius="5dp"
+            app:smtv_backgroundEnableColor="#f2f2f2"
+            app:smtv_textEnableColor="#000000"
+            android:enabled="false"
+            app:smtv_fillColor="#f2f2f2"
             android:layout_marginBottom="300dp"
             android:text="Simon"
-            />
+    />
 </LinearLayout>

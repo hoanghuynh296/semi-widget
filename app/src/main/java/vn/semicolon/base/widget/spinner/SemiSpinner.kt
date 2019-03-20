@@ -45,9 +45,7 @@ class SemiSpinner : StateTextView {
     private var mDisplayHeight: Int = 0
     private var mPopupMaxHeight = MAX_HEIGHT
     private var mElevation = DEFAULT_ELEVATION
-    @DrawableRes
     private var mArrowDrawableResId: Int = 0
-    @DrawableRes
     private var mArrowDisableDrawableResId: Int = 0
     private var parentVerticalOffset: Int = 0
     //
@@ -205,6 +203,14 @@ class SemiSpinner : StateTextView {
         super.onVisibilityChanged(changedView, visibility)
         mArrowDrawable = getDrawableFromDrawable()
         setArrowDrawableOrHide(mArrowDrawable)
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        if (mArrowDrawableResId > 0 && mArrowDisableDrawableResId > 0) {
+            mArrowDrawable = getDrawableFromDrawable()
+            setArrowDrawableOrHide(mArrowDrawable)
+        }
     }
 
     private fun getDrawableFromDrawable(): Drawable? {

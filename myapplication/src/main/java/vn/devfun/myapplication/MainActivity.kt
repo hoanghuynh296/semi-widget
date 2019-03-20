@@ -16,10 +16,11 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until 30) {
             tmp.add(TUModel("Title $i"))
         }
-        spinnerTest.setItems(tmp as MutableList<PopUpModel>)
-//        spinnerTest.setOnClickListener {
-//            Toast.makeText(applicationContext, "Test", Toast.LENGTH_SHORT).show()
-//        }
+        spinnerTest.setItems(tmp.toMutableList())
+        spinnerTest.setOnClickListener {
+            Toast.makeText(applicationContext, "Test", Toast.LENGTH_SHORT).show()
+            spinnerTest1.isEnabled = !spinnerTest1.isEnabled
+        }
     }
 }
 
