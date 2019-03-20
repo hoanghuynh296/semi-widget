@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
             tmp.add(TUModel("Title $i"))
         }
         spinnerTest.setItems(tmp as MutableList<PopUpModel>)
-        spinnerTest.setOnClickListener {
-            Toast.makeText(applicationContext, "Test", Toast.LENGTH_SHORT).show()
-        }
+//        spinnerTest.setOnClickListener {
+//            Toast.makeText(applicationContext, "Test", Toast.LENGTH_SHORT).show()
+//        }
     }
 }
 

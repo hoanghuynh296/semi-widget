@@ -119,10 +119,11 @@ class SemiSpinner : StateTextView {
             typedArray.recycle()
         }
         initPopup(context)
+        setOnClickListener(onClick)
     }
 
     private fun initAdapter() {
-        if(mItems.isNullOrEmpty()){
+        if (mItems.isNullOrEmpty()) {
             return
         }
         mAdapter = PopUpAdapter()
@@ -150,11 +151,11 @@ class SemiSpinner : StateTextView {
         }
     }
 
-    fun setBackgroundPopupDrawable(drawable: Drawable){
+    fun setBackgroundPopupDrawable(drawable: Drawable) {
         mPopupWindow?.setCardBackgroundDrawable(drawable)
     }
 
-    fun setBackgroundPopupColor(color: Int){
+    fun setBackgroundPopupColor(color: Int) {
         mPopupWindow?.setBackgroundColor(color)
     }
 
@@ -216,9 +217,8 @@ class SemiSpinner : StateTextView {
         mAdapter?.setSelected(position)
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (isEnabled && event.action == MotionEvent.ACTION_DOWN) {
+    private val onClick = OnClickListener {
+        if (isEnabled) {
             mPopupWindow?.run {
                 if (!isShowing) {
                     showDropDown()
@@ -227,7 +227,6 @@ class SemiSpinner : StateTextView {
                 }
             }
         }
-        return super.onTouchEvent(event)
     }
 
     fun dismissDropDown() {
