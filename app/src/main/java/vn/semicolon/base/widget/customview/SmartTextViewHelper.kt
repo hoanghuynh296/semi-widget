@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.widget.TextView
 import vn.semicolon.base.widget.R
 
-internal class SmartTextViewHelper(textView: TextView) {
+class SmartTextViewHelper(textView: TextView) {
 
     private var mBorderColor: Int = Color.parseColor("#adadad")
     private var mBorderWidth: Int = 0
