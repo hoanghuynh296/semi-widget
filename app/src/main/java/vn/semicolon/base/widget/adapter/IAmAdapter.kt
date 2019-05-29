@@ -22,9 +22,9 @@ interface IAmAdapter<O> : OnItemClickListener<O> {
     fun getItemAt(position: Int): O?
 
     fun add(index: Int, item: O)
-    fun remove(item: O): Boolean
+    fun remove(item: O): O
 
-    fun removeAt(index: Int): Boolean
+    fun removeAt(index: Int): O
 
     fun clear()
 
