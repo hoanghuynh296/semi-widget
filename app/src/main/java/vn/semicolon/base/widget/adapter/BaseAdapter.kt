@@ -6,7 +6,8 @@ import vn.semicolon.baseui.adapter.OnItemLongClickListener
 import java.util.*
 
 
-abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<O>>(), OnItemClickListener<O>, IAmAdapter<O> {
+abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<O>>(), OnItemClickListener<O>,
+    IAmAdapter<O> {
     override val data: MutableList<O> = ArrayList()
     private var mItemClickListener: OnItemClickListener<O>? = null
     private var mItemLongClickListener: OnItemLongClickListener<O>? = null
@@ -61,20 +62,23 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
         notifyItemInserted(index)
     }
 
-    override fun remove(item: O): Boolean {
+    override fun remove(item: O): O {
         val index = data.indexOf(item)
-        if (index == -1) return false
+        if (index == -1)
+            throw Exception("Can't remove item ${item.toString()}, item not found")
         data.remove(item)
         notifyItemRemoved(index)
-        return true
+        return item
     }
 
-    override fun removeAt(index: Int): Boolean {
+    override fun removeAt(index: Int): O {
         if (index < data.size && index >= 0) {
+            val item = data[index]
+            data.removeAt(index)
             notifyItemRemoved(index)
-            return true
+            return item
         }
-        return false
+        throw Exception("Can't remove item at index $index, item not found")
     }
 
     override fun onItemClick(item: O?, pos: Int, view: View) {
@@ -94,7 +98,11 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
             onItemClick(item, position, holder.itemView)
         }
         holder.itemView.setOnLongClickListener {
-            mItemLongClickListener?.onItemLongClick(getItemAt(holder.adapterPosition), holder.adapterPosition, holder.itemView)
+            mItemLongClickListener?.onItemLongClick(
+                getItemAt(holder.adapterPosition),
+                holder.adapterPosition,
+                holder.itemView
+            )
             true
         }
     }
