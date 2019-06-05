@@ -95,7 +95,11 @@ abstract class BaseAdapterHasHF<H, O, F> : RecyclerView.Adapter<RecyclerView.Vie
                 }
                 BODY -> {
                     holder.itemView.setOnClickListener {
-                        onItemClickListener?.onItemClick(getItemAt(getDataPositionOfFromAdapterPosition(holder.adapterPosition)), holder.adapterPosition, holder.itemView)
+                        onItemClickListener?.onItemClick(
+                            getItemAt(getDataPositionOfFromAdapterPosition(holder.adapterPosition)),
+                            holder.adapterPosition,
+                            holder.itemView
+                        )
                     }
                     (holder as BaseViewHolder<O>).bindData(getItemAt(position))
                 }
@@ -179,20 +183,23 @@ abstract class BaseAdapterHasHF<H, O, F> : RecyclerView.Adapter<RecyclerView.Vie
         notifyHFItemDataInserted(index, true)
     }
 
-    override fun remove(item: O): Boolean {
+    override fun remove(item: O): O {
         val index = data.indexOf(item)
-        if (index == -1) return false
+        if (index == -1)
+            throw Exception("Can't remove item ${item.toString()}, item not found")
         data.remove(item)
         notifyHFItemDataRemoved(index, true)
-        return true
+        return item
     }
 
-    override fun removeAt(index: Int): Boolean {
+    override fun removeAt(index: Int): O {
         if (index < data.size && index >= 0) {
+            val item = data[index]
+            data.removeAt(index)
             notifyHFItemDataRemoved(index, true)
-            return true
+            return item
         }
-        return false
+        throw Exception("Can't remove item at index $index, item not found")
     }
 
     /**
@@ -295,7 +302,10 @@ abstract class BaseAdapterHasHF<H, O, F> : RecyclerView.Adapter<RecyclerView.Vie
                 notifyItemMoved(fromIndex, toIndex)
                 return@post
             }
-            notifyItemMoved(getAdapterPositionOfFromDataPosition(fromIndex), getDataPositionOfFromAdapterPosition(toIndex))
+            notifyItemMoved(
+                getAdapterPositionOfFromDataPosition(fromIndex),
+                getDataPositionOfFromAdapterPosition(toIndex)
+            )
         }
     }
 
@@ -305,7 +315,10 @@ abstract class BaseAdapterHasHF<H, O, F> : RecyclerView.Adapter<RecyclerView.Vie
                 notifyItemRangeChanged(startIndex, endIndex)
                 return@post
             }
-            notifyItemRangeChanged(getAdapterPositionOfFromDataPosition(startIndex), getDataPositionOfFromAdapterPosition(endIndex))
+            notifyItemRangeChanged(
+                getAdapterPositionOfFromDataPosition(startIndex),
+                getDataPositionOfFromAdapterPosition(endIndex)
+            )
         }
     }
 
@@ -315,7 +328,10 @@ abstract class BaseAdapterHasHF<H, O, F> : RecyclerView.Adapter<RecyclerView.Vie
                 notifyItemRangeInserted(startIndex, endIndex)
                 return@post
             }
-            notifyItemRangeInserted(getAdapterPositionOfFromDataPosition(startIndex), getDataPositionOfFromAdapterPosition(endIndex))
+            notifyItemRangeInserted(
+                getAdapterPositionOfFromDataPosition(startIndex),
+                getDataPositionOfFromAdapterPosition(endIndex)
+            )
         }
     }
 
@@ -325,7 +341,10 @@ abstract class BaseAdapterHasHF<H, O, F> : RecyclerView.Adapter<RecyclerView.Vie
                 notifyItemRangeRemoved(startIndex, endIndex)
                 return@post
             }
-            notifyItemRangeRemoved(getAdapterPositionOfFromDataPosition(startIndex), getDataPositionOfFromAdapterPosition(endIndex))
+            notifyItemRangeRemoved(
+                getAdapterPositionOfFromDataPosition(startIndex),
+                getDataPositionOfFromAdapterPosition(endIndex)
+            )
         }
     }
 
