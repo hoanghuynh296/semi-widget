@@ -54,8 +54,8 @@ class SmartTextViewHelper(textView: TextView) {
 
         val rippleBackground = RippleDrawable(
             getPressedColorSelector(
-                mRippleColor,
-                Color.parseColor("#00000000")
+                Color.parseColor("#00000000"),
+                mRippleColor
             ),
             shape, shape
         )
@@ -65,8 +65,8 @@ class SmartTextViewHelper(textView: TextView) {
     private fun getPressedColorSelector(normalColor: Int, pressedColor: Int): ColorStateList {
         return ColorStateList(
             arrayOf(
-                intArrayOf(android.R.attr.state_pressed),
-                intArrayOf()
+                intArrayOf(),
+                intArrayOf(android.R.attr.state_pressed)
             ),
             intArrayOf(pressedColor, pressedColor, pressedColor, normalColor)
         )
