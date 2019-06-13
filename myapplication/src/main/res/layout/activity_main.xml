@@ -33,10 +33,17 @@
             app:smtv_fillColor="#f2f2f2"
             android:text="Simon"
     />
+
     <vn.semicolon.base.widget.customview.StateIconView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:smi_isSelected="true"
+            android:id="@+id/iconState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="20dp"
+            app:smi_backgroundRadius="5dp"
+            app:smi_backgroundShape="OVAL"
+            app:smi_backgroundSelectedColor="@color/colorPrimary"
+            app:smi_backgroundUnSelectedColor="@color/colorAccent"
             app:smi_drawableSelected="@drawable/ic_arrow_down_black"
             app:smi_drawableUnSelected="@drawable/ic_arrow_down_grey"/>
 </LinearLayout>

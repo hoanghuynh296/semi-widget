@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Test", Toast.LENGTH_SHORT).show()
             spinnerTest1.isEnabled = !spinnerTest1.isEnabled
         }
+        iconState.isSelected = false
     }
 }
 

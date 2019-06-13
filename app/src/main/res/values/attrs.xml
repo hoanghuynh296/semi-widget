@@ -50,5 +50,12 @@
         <attr name="smi_drawableDisable" format="reference"/>
         <attr name="smi_isSelected" format="boolean"/>
         <attr name="smi_isEnable" format="boolean"/>
+        <attr name="smi_backgroundRadius" format="dimension"/>
+        <attr name="smi_backgroundSelectedColor" format="color"/>
+        <attr name="smi_backgroundUnSelectedColor" format="color"/>
+        <attr name="smi_backgroundShape">
+            <enum name="RECTANGLE" value="0"/>
+            <enum name="OVAL" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>
