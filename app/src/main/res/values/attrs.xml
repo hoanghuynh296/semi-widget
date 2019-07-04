@@ -58,4 +58,16 @@
             <enum name="OVAL" value="1"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="SmartCardView">
+        <attr name="smcv_borderColor" format="color"/>
+        <attr name="smcv_rippleColor" format="color"/>
+        <attr name="smcv_borderWidth" format="dimension"/>
+        <attr name="smcv_dashWidth" format="dimension"/>
+        <attr name="smcv_dashGap" format="dimension"/>
+        <attr name="smcv_shape">
+            <enum name="RECTANGLE" value="0"/>
+            <enum name="OVAL" value="1"/>
+        </attr>
+    </declare-styleable>
 </resources>

@@ -1,10 +1,10 @@
 package vn.devfun.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import vn.semicolon.base.widget.spinner.PopUpModel
 import vn.semicolon.base.widget.spinner.TUModel
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until 30) {
             tmp.add(TUModel("Title $i"))
         }
+
         spinnerTest.setItems(tmp.toMutableList())
         spinnerTest.setOnClickListener {
             Toast.makeText(applicationContext, "Test", Toast.LENGTH_SHORT).show()

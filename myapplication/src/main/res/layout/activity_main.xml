@@ -46,4 +46,20 @@
             app:smi_backgroundUnSelectedColor="@color/colorAccent"
             app:smi_drawableSelected="@drawable/ic_arrow_down_black"
             app:smi_drawableUnSelected="@drawable/ic_arrow_down_grey"/>
+
+    <vn.semicolon.base.widget.customview.SmartCardView
+            android:id="@+id/smartCVTest"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:smcv_borderColor="#000000"
+            app:smcv_borderWidth="2dp"
+            app:cardCornerRadius="10dp"
+            app:smcv_dashGap="10dp"
+            app:smcv_dashWidth="10dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:smtv_rippleColor="@color/colorPrimary">
+
+    </vn.semicolon.base.widget.customview.SmartCardView>
 </LinearLayout>
