@@ -1,19 +1,15 @@
 package vn.semicolon.base.widget.spinner
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Typeface
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
-import androidx.annotation.DrawableRes
-import android.os.Bundle
 import android.view.View
+import android.view.View.OnClickListener
 import androidx.core.content.ContextCompat
-import android.view.MotionEvent
 import androidx.recyclerview.widget.RecyclerView
 import vn.semicolon.base.widget.R
 import vn.semicolon.base.widget.adapter.OnItemClickListener
@@ -167,6 +163,12 @@ class SemiSpinner : StateTextView {
 
     fun setItems(items: MutableList<PopUpModel>) {
         mItems = items
+        mAdapter?.notifyDataSetChanged()
+    }
+
+    fun clear() {
+        mItems = null
+        mAdapter?.notifyDataSetChanged()
     }
 
     override fun onSaveInstanceState(): Parcelable? {
