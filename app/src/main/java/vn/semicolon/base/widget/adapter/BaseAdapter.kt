@@ -1,6 +1,8 @@
 package vn.semicolon.base.widget.adapter
 
 import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.semicolon.baseui.adapter.OnItemLongClickListener
 import java.util.*
@@ -117,3 +119,44 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
 
 }
 
+
+abstract class SemiSpinnerAdapter<O> : BaseAdapter<O>() {
+    abstract fun getDisplayAt(pos: Int): String
+    fun getSelectedItem() = selectedItem
+    private var selectedItem: O? = null
+    private val onItemSelectedListeners = ArrayList<OnItemSelectedListenter>()
+    fun addOnItemSelectedListener(callback: OnItemSelectedListenter) {
+        onItemSelectedListeners.add(callback)
+    }
+
+    override fun onItemClick(item: O?, pos: Int, view: View) {
+        super.onItemClick(item, pos, view)
+        selectedItem = item
+        onItemSelectedListeners.forEach {
+            it.onItemSelected(getDisplayAt(pos), pos, view)
+        }
+    }
+
+    interface OnItemSelectedListenter {
+        fun onItemSelected(s: String, pos: Int, v: View)
+    }
+}
+
+class SimpleAdapter : SemiSpinnerAdapter<String>() {
+    override fun getDisplayAt(pos: Int): String {
+        return getItemAt(pos)!!
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<String> {
+        val tv = TextView(parent.context)
+        tv.tag = "textView"
+        tv.setPadding(20, 20, 20, 20)
+        return SimpleViewHolder(tv)
+    }
+
+    class SimpleViewHolder(v: View) : BaseViewHolder<String>(v) {
+        override fun bindData(data: String) {
+            itemView.findViewWithTag<TextView>("textView").text = data
+        }
+    }
+}

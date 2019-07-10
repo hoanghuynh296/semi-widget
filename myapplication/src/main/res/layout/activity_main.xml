@@ -62,4 +62,15 @@
             app:smtv_rippleColor="@color/colorPrimary">
 
     </vn.semicolon.base.widget.customview.SmartCardView>
+    <vn.semicolon.base.widget.spinner.SemiSpinner2
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            app:smtv_radius="5dp"
+            android:enabled="true"
+            android:id="@+id/spinner2"
+            app:smtv_fillColor="#f2f2f2"
+            android:text="Select"
+    />
 </LinearLayout>
