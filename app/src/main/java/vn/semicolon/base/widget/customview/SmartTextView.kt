@@ -2,6 +2,7 @@ package vn.semicolon.base.widget.customview
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.accessibility.AccessibilityNodeInfo
 import androidx.appcompat.widget.AppCompatTextView
 
 
@@ -23,6 +24,10 @@ open class SmartTextView : AppCompatTextView {
     private fun init(attrs: AttributeSet?, defStyleAttr: Int) {
         val helper = SmartTextViewHelper(this)
         helper.loadFromAttributes(attrs, defStyleAttr)
+    }
+
+    override fun onInitializeAccessibilityNodeInfo(info: AccessibilityNodeInfo?) {
+        super.onInitializeAccessibilityNodeInfo(info)
     }
 
 }
