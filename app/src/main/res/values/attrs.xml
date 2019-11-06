@@ -85,4 +85,31 @@
             <enum name="OVAL" value="1"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="OtpViewTheme">
+        <attr format="reference" name="otpViewStyle"/>
+    </declare-styleable>
+
+    <declare-styleable name="OtpView">
+        <attr format="integer" name="otp_itemCount"/>
+        <attr format="dimension" name="otp_itemWidth"/>
+        <attr format="dimension" name="otp_itemHeight"/>
+        <attr format="dimension" name="otp_itemRadius"/>
+        <attr format="dimension" name="otp_itemSpacing"/>
+        <attr format="dimension" name="otp_lineWidth"/>
+        <attr format="reference|color" name="otp_lineColor"/>
+        <attr format="enum" name="otp_viewType">
+            <enum name="rectangle" value="0"/>
+            <enum name="line" value="1"/>
+            <enum name="none" value="2"/>
+        </attr>
+        <attr name="android:cursorVisible"/>
+        <attr format="dimension" name="otp_cursorWidth"/>
+        <attr format="reference|color" name="otp_cursorColor"/>
+        <attr name="android:itemBackground"/>
+        <attr format="boolean" name="otp_hideLineWhenFilled"/>
+        <attr format="boolean" name="otp_state_filled"/>
+        <attr format="boolean" name="otp_rtlTextDirection"/>
+        <attr format="string" name="otp_maskingChar"/>
+    </declare-styleable>
 </resources>
