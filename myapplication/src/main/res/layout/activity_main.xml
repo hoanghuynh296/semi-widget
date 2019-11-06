@@ -32,6 +32,15 @@
         app:otp_lineColor="@color/colorPrimaryDark"
         app:otp_hideLineWhenFilled="true"
         app:otp_state_filled="true"
-        app:otp_rtlTextDirection="false"
-        />
+        app:otp_rtlTextDirection="false" />
+
+    <vn.semicolon.base.widget.customview.SmartTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Le Duc Hoang"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_test"/>
 </LinearLayout>

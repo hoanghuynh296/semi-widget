@@ -19,7 +19,10 @@ class SmartViewHelper {
             fillColor: Int? = null,
             rippleColor: Int? = null
         ) {
-            val drawShape = GradientDrawable()
+            var drawShape = view.background as? GradientDrawable
+            if(drawShape == null){
+                drawShape = GradientDrawable()
+            }
             if (shape != null)
                 drawShape.shape = shape
 
@@ -41,9 +44,8 @@ class SmartViewHelper {
                     dashGap ?: 0f
                 )
 
-            if (fillColor != null)
+            if (fillColor != null && fillColor != Color.TRANSPARENT)
                 drawShape.setColor(fillColor)
-
             val rippleBackground = RippleDrawable(
                 getPressedColorSelector(
                     Color.parseColor("#00000000"),
