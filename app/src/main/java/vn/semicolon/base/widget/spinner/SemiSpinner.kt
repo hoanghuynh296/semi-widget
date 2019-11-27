@@ -268,7 +268,8 @@ class SemiSpinner : StateTextView {
 
     private fun measurePopUpDimension() {
         val widthSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, View.MeasureSpec.EXACTLY)
-        val heightSpec = View.MeasureSpec.makeMeasureSpec(getPopUpHeight(), View.MeasureSpec.AT_MOST)
+        val heightSpec =
+            View.MeasureSpec.makeMeasureSpec(getPopUpHeight(), View.MeasureSpec.AT_MOST)
         mPopupWindow?.measureDimension(widthSpec, heightSpec, mPopupMaxHeight)
     }
 
@@ -310,6 +311,15 @@ class SemiSpinner : StateTextView {
     fun setOnDropdownItemClick(listener: OnDropDownClickListener?) {
         mListener = listener
     }
+
+    fun setOnDropdownItemClick(listener: (position: Int) -> Unit) {
+        mListener = object : OnDropDownClickListener {
+            override fun onItemClick(position: Int) {
+                listener.invoke(position)
+            }
+        }
+    }
+
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()

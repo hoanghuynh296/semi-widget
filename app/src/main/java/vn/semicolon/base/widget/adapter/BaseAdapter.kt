@@ -8,7 +8,8 @@ import vn.semicolon.baseui.adapter.OnItemLongClickListener
 import java.util.*
 
 
-abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<O>>(), OnItemClickListener<O>,
+abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<O>>(),
+    OnItemClickListener<O>,
     IAmAdapter<O> {
     override val data: MutableList<O> = ArrayList()
     private var mItemClickListener: OnItemClickListener<O>? = null
@@ -16,6 +17,30 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
 
     fun setOnItemClickListener(listener: OnItemClickListener<O>) {
         mItemClickListener = listener
+    }
+
+    /**
+     * @author HuynhMH
+     * @since 27/11/2019
+     */
+    fun setOnItemClickListener(onClick: (item: O?, pos: Int, view: View) -> Unit) {
+        mItemClickListener = object : OnItemClickListener<O> {
+            override fun onItemClick(item: O?, pos: Int, view: View) {
+                onClick.invoke(item, pos, view)
+            }
+        }
+    }
+
+    /**
+     * @author HuynhMH
+     * @since 27/11/2019
+     */
+    fun setOnItemLongClickListener(onLongClick: (item: O?, pos: Int, view: View) -> Unit) {
+        mItemLongClickListener = object : OnItemLongClickListener<O> {
+            override fun onItemLongClick(item: O?, pos: Int, view: View) {
+                onLongClick.invoke(item, pos, view)
+            }
+        }
     }
 
     fun setOnItemLongClickListener(listener: OnItemLongClickListener<O>) {
@@ -127,6 +152,15 @@ abstract class SemiSpinnerAdapter<O> : BaseAdapter<O>() {
     private val onItemSelectedListeners = ArrayList<OnItemSelectedListenter>()
     fun addOnItemSelectedListener(callback: OnItemSelectedListenter) {
         onItemSelectedListeners.add(callback)
+    }
+
+    fun addOnItemSelectedListener(callback: (s: String, pos: Int, v: View) -> Unit) {
+        val newCallback = object : OnItemSelectedListenter {
+            override fun onItemSelected(s: String, pos: Int, v: View) {
+                callback.invoke(s, pos, v)
+            }
+        }
+        onItemSelectedListeners.add(newCallback)
     }
 
     override fun onItemClick(item: O?, pos: Int, view: View) {

@@ -291,6 +291,14 @@ class SemiSpinner2 : StateTextView {
         mListener = listener
     }
 
+    fun setOnDropdownItemClick(listener: (position: Int) -> Unit) {
+        mListener = object : OnDropDownClickListener {
+            override fun onItemClick(position: Int) {
+                listener.invoke(position)
+            }
+        }
+    }
+
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         mListener = null
@@ -304,7 +312,6 @@ class SemiSpinner2 : StateTextView {
         mListener?.onItemClick(pos)
         dismissDropDown()
     }
-
 }
 
 
@@ -316,6 +323,16 @@ abstract class SemiSpinnerAdapter<O> : BaseAdapter<O>() {
     fun addOnItemSelectedListener(callback: OnItemSelectedListenter) {
         onItemSelectedListeners.add(callback)
     }
+
+    fun addOnItemSelectedListener(callback: (s: String, pos: Int, v: View) -> Unit) {
+        val newCallback = object : OnItemSelectedListenter {
+            override fun onItemSelected(s: String, pos: Int, v: View) {
+                callback.invoke(s, pos, v)
+            }
+        }
+        onItemSelectedListeners.add(newCallback)
+    }
+
 
     override fun onItemClick(item: O?, pos: Int, view: View) {
         super.onItemClick(item, pos, view)
