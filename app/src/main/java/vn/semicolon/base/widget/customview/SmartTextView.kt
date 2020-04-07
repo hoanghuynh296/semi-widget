@@ -3,6 +3,7 @@ package vn.semicolon.base.widget.customview
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.RippleDrawable
 import android.util.AttributeSet
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.appcompat.widget.AppCompatTextView
@@ -59,6 +60,16 @@ open class SmartTextView : AppCompatTextView {
             typedArray.recycle()
         }
 
+    }
+
+    override fun setBackgroundColor(color: Int) {
+        val drawableBg = background
+        if (drawableBg is RippleDrawable) {
+            val shape = drawableBg.getDrawable(0)
+            if (shape is GradientDrawable) {
+                shape.setColor(color)
+            }
+        }
     }
 
 }
