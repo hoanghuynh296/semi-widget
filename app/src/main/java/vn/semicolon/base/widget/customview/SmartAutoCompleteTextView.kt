@@ -5,11 +5,11 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.RippleDrawable
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import vn.semicolon.base.widget.R
 
 
-open class SmartEditText : AppCompatEditText {
+open class SmartAutoCompleteTextView : AppCompatAutoCompleteTextView {
 
     constructor(context: Context) : super(context) {
         init(null, 0)
@@ -28,40 +28,39 @@ open class SmartEditText : AppCompatEditText {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(
                 attrs,
-                R.styleable.SmartEditText, defStyleAttr, 0
+                R.styleable.SmartAutoCompleteTextView, defStyleAttr, 0
             )
             SmartViewHelper.setView(
                 this,
                 borderColor = typedArray.getColor(
-                    R.styleable.SmartEditText_smet_borderColor,
+                    R.styleable.SmartAutoCompleteTextView_smactv_borderColor,
                     Color.parseColor("#adadad")
                 ),
                 borderWidth = typedArray.getDimensionPixelOffset(
-                    R.styleable.SmartEditText_smet_borderWidth,
+                    R.styleable.SmartAutoCompleteTextView_smactv_borderWidth,
                     0
                 ),
                 fillColor = typedArray.getColor(
-                    R.styleable.SmartEditText_smet_fillColor,
+                    R.styleable.SmartAutoCompleteTextView_smactv_fillColor,
                     Color.parseColor("#00000000")
                 ),
-                radius = typedArray.getDimension(R.styleable.SmartEditText_smet_radius, 0f),
+                radius = typedArray.getDimension(R.styleable.SmartAutoCompleteTextView_smactv_radius, 0f),
                 dashWidth = typedArray.getDimension(
-                    R.styleable.SmartEditText_smet_dashWidth,
+                    R.styleable.SmartAutoCompleteTextView_smactv_dashWidth,
                     0f
                 ),
-                dashGap = typedArray.getDimension(R.styleable.SmartEditText_smet_dashGap, 0f),
+                dashGap = typedArray.getDimension(R.styleable.SmartAutoCompleteTextView_smactv_dashGap, 0f),
                 shape = typedArray.getInt(
-                    R.styleable.SmartEditText_smet_shape,
+                    R.styleable.SmartAutoCompleteTextView_smactv_shape,
                     GradientDrawable.RECTANGLE
                 ),
                 rippleColor = typedArray.getColor(
-                    R.styleable.SmartEditText_smet_rippleColor,
+                    R.styleable.SmartAutoCompleteTextView_smactv_rippleColor,
                     Color.parseColor("#dfdfdf")
                 )
             )
             typedArray.recycle()
         }
-
     }
 
     override fun setBackgroundColor(color: Int) {

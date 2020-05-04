@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="SmartAutoCompleteTextView">
+        <attr name="smactv_fillColor" format="color"/>
+        <attr name="smactv_borderColor" format="color"/>
+        <attr name="smactv_rippleColor" format="color"/>
+        <attr name="smactv_borderWidth" format="dimension"/>
+        <attr name="smactv_radius" format="dimension"/>
+        <attr name="smactv_dashWidth" format="dimension"/>
+        <attr name="smactv_dashGap" format="dimension"/>
+        <attr name="smactv_shape">
+            <enum name="RECTANGLE" value="0"/>
+            <enum name="OVAL" value="1"/>
+            <enum name="LINE" value="2"/>
+            <enum name="RING" value="3"/>
+        </attr>
+    </declare-styleable>
     <declare-styleable name="SmartEditText">
         <attr name="smet_fillColor" format="color"/>
         <attr name="smet_borderColor" format="color"/>
