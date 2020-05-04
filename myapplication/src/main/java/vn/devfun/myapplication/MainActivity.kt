@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         textBackgroundColor.setBackgroundColor(Color.RED)
+        main_icon.setOnClickListener {
+            it.isSelected = !it.isSelected
+        }
     }
 }
 

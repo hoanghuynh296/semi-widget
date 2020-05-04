@@ -53,4 +53,14 @@
         android:text="Simon Le"
         app:smtv_fillColor="@android:color/darker_gray"
         app:smtv_radius="10dp" />
+    <vn.semicolon.base.widget.customview.StateIconView
+        android:layout_width="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@android:color/darker_gray"
+        android:layout_height="50dp"
+        android:id="@+id/main_icon"
+        android:src="@drawable/ic_arrow_down_black"
+        app:smi_drawableSelectedTint="@color/colorPrimary"
+        app:smi_drawableUnSelectedTint="@color/colorAccent" />
 </LinearLayout>
