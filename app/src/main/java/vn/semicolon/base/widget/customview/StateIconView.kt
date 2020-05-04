@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.widget.ImageView
 import vn.semicolon.base.widget.R
 
-class StateIconView : ImageView {
+class StateIconView : androidx.appcompat.widget.AppCompatImageView {
 
     private var mDrawableSelected: Int = 0
     private var mDrawableUnSelected: Int = 0
@@ -17,6 +17,11 @@ class StateIconView : ImageView {
     private var mBackgroundRadius = 0f
     private var mBackgroundSelectedColor = Color.TRANSPARENT
     private var mBackgroundUnSelectedColor = Color.TRANSPARENT
+    private var mDrawableSelectedTint: Int = -1
+    private var mDrawableUnSelectedTint: Int = -1
+    private var mDrawableEnableTint: Int = -1
+    private var mDrawableDisableTint: Int = -1
+
     /**
      * @link android.graphics.drawable.GradientDrawable
      */
@@ -38,48 +43,61 @@ class StateIconView : ImageView {
     private fun init(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) {
         attributeSet?.let {
             val typedArray = context.obtainStyledAttributes(
-                it,
-                R.styleable.StateIconView, defStyleAttr, 0
+                    it,
+                    R.styleable.StateIconView, defStyleAttr, 0
             )
             mDrawableSelected = typedArray.getResourceId(
-                R.styleable.StateIconView_smi_drawableSelected, 0
+                    R.styleable.StateIconView_smi_drawableSelected, 0
             )
             mDrawableUnSelected = typedArray.getResourceId(
-                R.styleable.StateIconView_smi_drawableUnSelected, 0
+                    R.styleable.StateIconView_smi_drawableUnSelected, 0
             )
             if (mDrawableSelected > 0 && mDrawableUnSelected > 0) {
                 isSelected = typedArray.getBoolean(
-                    R.styleable.StateIconView_smi_isSelected, false
+                        R.styleable.StateIconView_smi_isSelected, false
                 )
             }
             mDrawableEnable = typedArray.getResourceId(
-                R.styleable.StateIconView_smi_drawableEnable, 0
+                    R.styleable.StateIconView_smi_drawableEnable, 0
             )
             mDrawableDisable = typedArray.getResourceId(
-                R.styleable.StateIconView_smi_drawableDisable, 0
+                    R.styleable.StateIconView_smi_drawableDisable, 0
             )
             if (mDrawableEnable > 0
-                && mDrawableDisable > 0
+                    && mDrawableDisable > 0
             ) {
                 isEnabled = typedArray.getBoolean(
-                    R.styleable.StateIconView_smi_isEnable, false
+                        R.styleable.StateIconView_smi_isEnable, false
                 )
             }
             //Background
             mBackgroundRadius = typedArray.getDimension(
-                R.styleable.StateIconView_smi_backgroundRadius, 0f
+                    R.styleable.StateIconView_smi_backgroundRadius, 0f
             )
             mBackgroundSelectedColor = typedArray.getColor(
-                R.styleable.StateIconView_smi_backgroundSelectedColor,
-                Color.TRANSPARENT
+                    R.styleable.StateIconView_smi_backgroundSelectedColor,
+                    Color.TRANSPARENT
             )
             mBackgroundUnSelectedColor = typedArray.getColor(
-                R.styleable.StateIconView_smi_backgroundUnSelectedColor,
-                Color.TRANSPARENT
+                    R.styleable.StateIconView_smi_backgroundUnSelectedColor,
+                    Color.TRANSPARENT
             )
             mBackgroundShape = typedArray.getColor(
-                R.styleable.StateIconView_smi_backgroundShape,
-                GradientDrawable.RECTANGLE
+                    R.styleable.StateIconView_smi_backgroundShape,
+                    GradientDrawable.RECTANGLE
+            )
+            // tint
+            mDrawableSelectedTint = typedArray.getResourceId(
+                    R.styleable.StateIconView_smi_drawableSelectedTint, mDrawableSelectedTint
+            )
+            mDrawableUnSelectedTint = typedArray.getResourceId(
+                    R.styleable.StateIconView_smi_drawableUnSelectedTint, mDrawableUnSelectedTint
+            )
+            mDrawableEnableTint = typedArray.getResourceId(
+                    R.styleable.StateIconView_smi_drawableEnableTint, mDrawableEnableTint
+            )
+            mDrawableDisableTint = typedArray.getResourceId(
+                    R.styleable.StateIconView_smi_drawableDisableTint, mDrawableDisableTint
             )
             typedArray.recycle()
         }
@@ -89,6 +107,20 @@ class StateIconView : ImageView {
         super.setSelected(selected)
         setImageResource(if (selected) mDrawableSelected else mDrawableUnSelected)
         background = createBackgroundShape()
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+        val tint = when {
+            isEnabled -> mDrawableEnableTint
+            !isEnabled -> mDrawableDisableTint
+            isSelected -> mDrawableSelectedTint
+            !isSelected -> mDrawableUnSelectedTint
+            else -> -1
+        }
+        if (tint != -1)
+            setColorFilter(tint)
+        else clearColorFilter()
     }
 
     override fun setEnabled(enabled: Boolean) {

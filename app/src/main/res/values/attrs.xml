@@ -1,130 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SmartAutoCompleteTextView">
-        <attr name="smactv_fillColor" format="color"/>
-        <attr name="smactv_borderColor" format="color"/>
-        <attr name="smactv_rippleColor" format="color"/>
-        <attr name="smactv_borderWidth" format="dimension"/>
-        <attr name="smactv_radius" format="dimension"/>
-        <attr name="smactv_dashWidth" format="dimension"/>
-        <attr name="smactv_dashGap" format="dimension"/>
+        <attr name="smactv_fillColor" format="color" />
+        <attr name="smactv_borderColor" format="color" />
+        <attr name="smactv_rippleColor" format="color" />
+        <attr name="smactv_borderWidth" format="dimension" />
+        <attr name="smactv_radius" format="dimension" />
+        <attr name="smactv_dashWidth" format="dimension" />
+        <attr name="smactv_dashGap" format="dimension" />
         <attr name="smactv_shape">
-            <enum name="RECTANGLE" value="0"/>
-            <enum name="OVAL" value="1"/>
-            <enum name="LINE" value="2"/>
-            <enum name="RING" value="3"/>
+            <enum name="RECTANGLE" value="0" />
+            <enum name="OVAL" value="1" />
+            <enum name="LINE" value="2" />
+            <enum name="RING" value="3" />
         </attr>
     </declare-styleable>
     <declare-styleable name="SmartEditText">
-        <attr name="smet_fillColor" format="color"/>
-        <attr name="smet_borderColor" format="color"/>
-        <attr name="smet_rippleColor" format="color"/>
-        <attr name="smet_borderWidth" format="dimension"/>
-        <attr name="smet_radius" format="dimension"/>
-        <attr name="smet_dashWidth" format="dimension"/>
-        <attr name="smet_dashGap" format="dimension"/>
+        <attr name="smet_fillColor" format="color" />
+        <attr name="smet_borderColor" format="color" />
+        <attr name="smet_rippleColor" format="color" />
+        <attr name="smet_borderWidth" format="dimension" />
+        <attr name="smet_radius" format="dimension" />
+        <attr name="smet_dashWidth" format="dimension" />
+        <attr name="smet_dashGap" format="dimension" />
         <attr name="smet_shape">
-            <enum name="RECTANGLE" value="0"/>
-            <enum name="OVAL" value="1"/>
-            <enum name="LINE" value="2"/>
-            <enum name="RING" value="3"/>
+            <enum name="RECTANGLE" value="0" />
+            <enum name="OVAL" value="1" />
+            <enum name="LINE" value="2" />
+            <enum name="RING" value="3" />
         </attr>
     </declare-styleable>
     <declare-styleable name="SmartTextView">
-        <attr name="smtv_fillColor" format="color"/>
-        <attr name="smtv_borderColor" format="color"/>
-        <attr name="smtv_rippleColor" format="color"/>
-        <attr name="smtv_borderWidth" format="dimension"/>
-        <attr name="smtv_radius" format="dimension"/>
-        <attr name="smtv_dashWidth" format="dimension"/>
-        <attr name="smtv_dashGap" format="dimension"/>
+        <attr name="smtv_fillColor" format="color" />
+        <attr name="smtv_borderColor" format="color" />
+        <attr name="smtv_rippleColor" format="color" />
+        <attr name="smtv_borderWidth" format="dimension" />
+        <attr name="smtv_radius" format="dimension" />
+        <attr name="smtv_dashWidth" format="dimension" />
+        <attr name="smtv_dashGap" format="dimension" />
         <attr name="smtv_shape">
-            <enum name="RECTANGLE" value="0"/>
-            <enum name="OVAL" value="1"/>
-            <enum name="LINE" value="2"/>
-            <enum name="RING" value="3"/>
+            <enum name="RECTANGLE" value="0" />
+            <enum name="OVAL" value="1" />
+            <enum name="LINE" value="2" />
+            <enum name="RING" value="3" />
         </attr>
     </declare-styleable>
     <declare-styleable name="StateTextView">
-        <attr name="smtv_backgroundSelectedColor" format="color"/>
-        <attr name="smtv_backgroundUnSelectedColor" format="color"/>
-        <attr name="smtv_textSelectedColor" format="color"/>
-        <attr name="smtv_textUnSelectedColor" format="color"/>
-        <attr name="smtv_isSelected" format="boolean"/>
-        <attr name="smtv_backgroundEnableColor" format="color"/>
-        <attr name="smtv_backgroundDisableColor" format="color"/>
-        <attr name="smtv_textEnableColor" format="color"/>
-        <attr name="smtv_textDisableColor" format="color"/>
+        <attr name="smtv_backgroundSelectedColor" format="color" />
+        <attr name="smtv_backgroundUnSelectedColor" format="color" />
+        <attr name="smtv_textSelectedColor" format="color" />
+        <attr name="smtv_textUnSelectedColor" format="color" />
+        <attr name="smtv_isSelected" format="boolean" />
+        <attr name="smtv_backgroundEnableColor" format="color" />
+        <attr name="smtv_backgroundDisableColor" format="color" />
+        <attr name="smtv_textEnableColor" format="color" />
+        <attr name="smtv_textDisableColor" format="color" />
     </declare-styleable>
     <declare-styleable name="LockableViewPager">
-        <attr name="lvp_isLockSwipe" format="boolean"/>
+        <attr name="lvp_isLockSwipe" format="boolean" />
     </declare-styleable>
     <declare-styleable name="SemiSpinner">
-        <attr name="smsp_itemTextColor" format="color"/>
-        <attr name="smsp_itemTextSelectedColor" format="color"/>
-        <attr name="smsp_itemTextSize" format="dimension"/>
-        <attr name="smsp_itemBgSelectedColor" format="color"/>
-        <attr name="smsp_itemBgUnSelectedColor" format="color"/>
-        <attr name="smsp_hideArrow" format="boolean"/>
-        <attr name="smsp_arrowEnableDrawable" format="reference"/>
-        <attr name="smsp_arrowDisableDrawable" format="reference"/>
-        <attr name="smsp_popupMaxHeight" format="dimension"/>
-        <attr name="smsp_popupElevation" format="dimension"/>
-        <attr name="smsp_bgPopupColor" format="color"/>
+        <attr name="smsp_itemTextColor" format="color" />
+        <attr name="smsp_itemTextSelectedColor" format="color" />
+        <attr name="smsp_itemTextSize" format="dimension" />
+        <attr name="smsp_itemBgSelectedColor" format="color" />
+        <attr name="smsp_itemBgUnSelectedColor" format="color" />
+        <attr name="smsp_hideArrow" format="boolean" />
+        <attr name="smsp_arrowEnableDrawable" format="reference" />
+        <attr name="smsp_arrowDisableDrawable" format="reference" />
+        <attr name="smsp_popupMaxHeight" format="dimension" />
+        <attr name="smsp_popupElevation" format="dimension" />
+        <attr name="smsp_bgPopupColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="StateIconView">
-        <attr name="smi_drawableSelected" format="reference"/>
-        <attr name="smi_drawableUnSelected" format="reference"/>
-        <attr name="smi_drawableEnable" format="reference"/>
-        <attr name="smi_drawableDisable" format="reference"/>
-        <attr name="smi_isSelected" format="boolean"/>
-        <attr name="smi_isEnable" format="boolean"/>
-        <attr name="smi_backgroundRadius" format="dimension"/>
-        <attr name="smi_backgroundSelectedColor" format="color"/>
-        <attr name="smi_backgroundUnSelectedColor" format="color"/>
+        <attr name="smi_drawableSelected" format="reference" />
+        <attr name="smi_drawableUnSelected" format="reference" />
+        <attr name="smi_drawableEnable" format="reference" />
+        <attr name="smi_drawableDisable" format="reference" />
+        <attr name="smi_isSelected" format="boolean" />
+        <attr name="smi_isEnable" format="boolean" />
+        <attr name="smi_backgroundRadius" format="dimension" />
+        <attr name="smi_backgroundSelectedColor" format="color" />
+        <attr name="smi_backgroundUnSelectedColor" format="color" />
         <attr name="smi_backgroundShape">
-            <enum name="RECTANGLE" value="0"/>
-            <enum name="OVAL" value="1"/>
+            <enum name="RECTANGLE" value="0" />
+            <enum name="OVAL" value="1" />
         </attr>
+        <attr name="smi_drawableSelectedTint" format="color" />
+        <attr name="smi_drawableUnSelectedTint" format="color" />
+        <attr name="smi_drawableEnableTint" format="color" />
+        <attr name="smi_drawableDisableTint" format="color" />
     </declare-styleable>
 
     <declare-styleable name="SmartCardView">
-        <attr name="smcv_borderColor" format="color"/>
-        <attr name="smcv_rippleColor" format="color"/>
-        <attr name="smcv_borderWidth" format="dimension"/>
-        <attr name="smcv_dashWidth" format="dimension"/>
-        <attr name="smcv_dashGap" format="dimension"/>
+        <attr name="smcv_borderColor" format="color" />
+        <attr name="smcv_rippleColor" format="color" />
+        <attr name="smcv_borderWidth" format="dimension" />
+        <attr name="smcv_dashWidth" format="dimension" />
+        <attr name="smcv_dashGap" format="dimension" />
         <attr name="smcv_shape">
-            <enum name="RECTANGLE" value="0"/>
-            <enum name="OVAL" value="1"/>
+            <enum name="RECTANGLE" value="0" />
+            <enum name="OVAL" value="1" />
         </attr>
     </declare-styleable>
 
     <declare-styleable name="OtpViewTheme">
-        <attr format="reference" name="otpViewStyle"/>
+        <attr name="otpViewStyle" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="OtpView">
-        <attr format="integer" name="otp_itemCount"/>
-        <attr format="dimension" name="otp_itemWidth"/>
-        <attr format="dimension" name="otp_itemHeight"/>
-        <attr format="dimension" name="otp_itemRadius"/>
-        <attr format="dimension" name="otp_itemSpacing"/>
-        <attr format="dimension" name="otp_lineWidth"/>
-        <attr format="reference|color" name="otp_lineColor"/>
-        <attr format="enum" name="otp_viewType">
-            <enum name="rectangle" value="0"/>
-            <enum name="line" value="1"/>
-            <enum name="none" value="2"/>
+        <attr name="otp_itemCount" format="integer" />
+        <attr name="otp_itemWidth" format="dimension" />
+        <attr name="otp_itemHeight" format="dimension" />
+        <attr name="otp_itemRadius" format="dimension" />
+        <attr name="otp_itemSpacing" format="dimension" />
+        <attr name="otp_lineWidth" format="dimension" />
+        <attr name="otp_lineColor" format="reference|color" />
+        <attr name="otp_viewType" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="line" value="1" />
+            <enum name="none" value="2" />
         </attr>
-        <attr name="android:cursorVisible"/>
-        <attr format="dimension" name="otp_cursorWidth"/>
-        <attr format="reference|color" name="otp_cursorColor"/>
-        <attr name="android:itemBackground"/>
-        <attr format="boolean" name="otp_hideLineWhenFilled"/>
-        <attr format="boolean" name="otp_state_filled"/>
-        <attr format="boolean" name="otp_rtlTextDirection"/>
-        <attr format="string" name="otp_maskingChar"/>
+        <attr name="android:cursorVisible" />
+        <attr name="otp_cursorWidth" format="dimension" />
+        <attr name="otp_cursorColor" format="reference|color" />
+        <attr name="android:itemBackground" />
+        <attr name="otp_hideLineWhenFilled" format="boolean" />
+        <attr name="otp_state_filled" format="boolean" />
+        <attr name="otp_rtlTextDirection" format="boolean" />
+        <attr name="otp_maskingChar" format="string" />
     </declare-styleable>
 </resources>
