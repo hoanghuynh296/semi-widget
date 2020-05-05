@@ -105,6 +105,7 @@ class StateIconView : androidx.appcompat.widget.AppCompatImageView {
         }
         onEnableChanged()
         onSelectedChanged()
+
     }
 
     override fun setSelected(selected: Boolean) {
@@ -115,11 +116,13 @@ class StateIconView : androidx.appcompat.widget.AppCompatImageView {
     private fun onSelectedChanged() {
         if (mDrawableSelected != 0 && mDrawableUnSelected != 0)
             setImageResource(if (isSelected) mDrawableSelected else mDrawableUnSelected)
-        background = createBackgroundShape()
         val tint = if (isSelected) mDrawableSelectedTint else mDrawableUnSelectedTint
         if (tint != -1)
             ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(tint))
         else clearColorFilter()
+        createBackgroundShape()?.let {
+            background = it
+        }
     }
 
     private fun onEnableChanged() {
@@ -136,7 +139,7 @@ class StateIconView : androidx.appcompat.widget.AppCompatImageView {
         onEnableChanged()
     }
 
-    private fun createBackgroundShape(): Drawable {
+    private fun createBackgroundShape(): Drawable? {
         if (mBackgroundShape == 0) return background
         val drawable = GradientDrawable()
         drawable.shape = mBackgroundShape
