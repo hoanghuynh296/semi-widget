@@ -54,11 +54,9 @@ class StateIconView : androidx.appcompat.widget.AppCompatImageView {
             mDrawableUnSelected = typedArray.getResourceId(
                 R.styleable.StateIconView_smi_drawableUnSelected, 0
             )
-            if (mDrawableSelected > 0 && mDrawableUnSelected > 0) {
-                isSelected = typedArray.getBoolean(
-                    R.styleable.StateIconView_smi_isSelected, false
-                )
-            }
+            isSelected = typedArray.getBoolean(
+                R.styleable.StateIconView_smi_isSelected, false
+            )
             mDrawableEnable = typedArray.getResourceId(
                 R.styleable.StateIconView_smi_drawableEnable, 0
             )
