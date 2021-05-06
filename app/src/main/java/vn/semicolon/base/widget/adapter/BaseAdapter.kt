@@ -119,10 +119,10 @@ abstract class BaseAdapter<O> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<O>, position: Int) {
-        val item = getItemAt(position)
+        val item = getItemAt(holder.adapterPosition)
         holder.bindData(item!!)
         holder.itemView.setOnClickListener {
-            onItemClick(item, position, holder.itemView)
+            onItemClick(item, holder.adapterPosition, holder.itemView)
         }
         holder.itemView.setOnLongClickListener {
             mItemLongClickListener?.onItemLongClick(
